@@ -5,11 +5,13 @@ class CreateProperties < ActiveRecord::Migration[6.0]
       t.integer :ticket_price
       t.integer :minimum_age
       t.string :event_type
-      t.string :type
+      t.datetime :date_created
+      t.integer :maximum_occupancy
       t.string :address
       t.string :city
       t.string :state
       t.integer :zipcode
+     
 
       t.timestamps
     end
