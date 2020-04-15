@@ -1,0 +1,15 @@
+
+    <%= form_for @user do |f| %>
+        <div class="form_group">
+            <%= f.label "enter your fullname: " %>
+            <%= f.text_field :fullname %>
+            <br>
+            <%= f.label "create a email:" %>
+            <%= f.text_field :email %>
+            <br>
+            <%= f.label "password: " %>
+            <%= f.password_field :password, autocomplete: "password" %>
+            <br>
+            <%= f.submit "Sign Up!" %>
+        </div>
+    <% end %>

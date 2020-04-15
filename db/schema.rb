@@ -13,15 +13,17 @@
 ActiveRecord::Schema.define(version: 2020_04_14_194139) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "total_attending"
-    t.datetime "date_booked"
+    t.integer "user_id", null: false
+    t.integer "events_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["events_id"], name: "index_bookings_on_events_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.integer "ticket_price"
+    t.string "event_name"
+    t.float "ticket_price"
     t.integer "minimum_age"
     t.string "event_type"
     t.integer "number_of_guests"
@@ -35,9 +37,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string "name"
-    t.integer "ticket_price"
-    t.integer "minimum_age"
     t.string "event_type"
     t.datetime "date_created"
     t.integer "maximum_occupancy"
@@ -50,17 +49,16 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "fullname"
+    t.string "email"
     t.string "password_digest"
-    t.integer "age"
-    t.integer "budget"
-    t.string "event_type"
     t.boolean "host", default: false
-    t.boolean "gender", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bookings", "events", column: "events_id"
+  add_foreign_key "bookings", "users"
   add_foreign_key "events", "properties"
   add_foreign_key "events", "users"
 end

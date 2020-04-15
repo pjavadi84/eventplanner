@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'static#home'
   #signup route
-  get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
   
   #login route
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
 
   #logout route
   delete '/logout', to: 'sessions#destroy'
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   end
 
   resources :events do 
+    resources :bookings, only: [:new,:create,:index, :show]
+  end
+
+  resources :users do
     resources :bookings, only: [:new,:create,:index, :show]
   end
 
