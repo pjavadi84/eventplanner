@@ -1,5 +1,5 @@
 class StaticController < ApplicationController 
-    # skip_before_action :logged_in?, only: [:home]
+    # skip_before_action :current_user, only: [:home]
 
     def home 
 

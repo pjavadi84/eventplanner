@@ -41,6 +41,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+  gem 'pry'
 end
 
 group :test do
