@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>Welcome, <strong><%= @user.fullname %><strong></h3>
+
+
+<div class="container-fluid">
+  <%= link_to 'Create Property', new_user_property_path(@user) %>
+</div>

@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   #resource routes
   resources :users do
-    resources :events , only: [:new,:create,:index, :show]
+    resources :events
+  end
+
+  resources :users do
+    resources :properties
   end
 
   resources :properties do 
