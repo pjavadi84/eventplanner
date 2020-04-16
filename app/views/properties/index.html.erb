@@ -1,0 +1,20 @@
+<h2>All properties: </h2>
+
+<%= @properties.each do |t| %>
+    <!--<div class="container">
+        <h2><%= link_to t.event_type, property_path(t) %></h2>
+    </div> -->
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+<% end %>

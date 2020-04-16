@@ -8,11 +8,20 @@ class PropertiesController < ApplicationController
     end
 
     def create 
+        @property = current_user.properties.build(property_params)
+
+        if @property.save
+            # binding.pry
+            redirect_to user_properties_path(@property)
+        else
+            render :new
+        end
         
+          
     end
 
     def show
-        
+        @property = Property.find(params[:id])
     end
 
     def edit
@@ -26,6 +35,7 @@ class PropertiesController < ApplicationController
     private 
     def property_params
         params.require(:property).permit(
+            :user_id,
             :event_type, 
             :date_created, 
             :maximum_occupancy, 
