@@ -43,6 +43,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
   gem 'pry'
+  
 end
 
 group :test do
@@ -53,5 +54,6 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'yelp', '~> 2.1', '>= 2.1.5'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

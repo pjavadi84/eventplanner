@@ -1,4 +1,4 @@
 class Property < ApplicationRecord
-    has_many :events 
-    has_many :users, through: :events
+    belongs_to :user 
+    has_many :events
 end

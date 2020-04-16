@@ -13,25 +13,22 @@ Rails.application.routes.draw do
   #logout route
   delete '/logout', to: 'sessions#destroy'
 
-  #resource routes
-  resources :users do
-    resources :events
-  end
 
   resources :users do
     resources :properties
   end
 
-  resources :properties do 
-    resources :events , only: [:new,:create,:index, :show]
+  resources :properties do
+    resources :events
   end
 
+  
   resources :events do 
-    resources :bookings, only: [:new,:create,:index, :show]
+    resources :bookings
   end
 
   resources :users do
-    resources :bookings, only: [:new,:create,:index, :show]
+    resources :bookings
   end
 
   get '/auth/github/callback', to: 'sessions#github_login'
