@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :bookings
+    resources :bookings, only: [:new,:create,:index, :show]
   end
 
   get '/auth/github/callback', to: 'sessions#github_login'

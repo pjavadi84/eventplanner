@@ -4,10 +4,14 @@ class PropertiesController < ApplicationController
     end
     
     def new 
-        @property = Property.new
+        if params[:user_id] && !User.exists?(params[:user_id])
+            redirect_to users_path, alert: "User not found."
+        else
+            @property = Property.new(user_id: params[:user_id])
+        end     
     end
 
-    def create 
+    def create
         @property = current_user.properties.build(property_params)
 
         if @property.save
@@ -15,9 +19,7 @@ class PropertiesController < ApplicationController
             redirect_to user_properties_path(@property)
         else
             render :new
-        end
-        
-          
+        end 
     end
 
     def show
@@ -25,17 +27,35 @@ class PropertiesController < ApplicationController
     end
 
     def edit
-
+        if params[:user_id]
+            user = User.find_by(id: params[:user_id])
+            if user.nil?
+                redirect_to users_path, alert: "User not found."
+            else
+                @property = user.properties.find_by(id: params[:id])
+                redirect_to user_properties_path(user), alert: "Property not found." if @property.nil?
+            end
+        else
+            @property = Property.find(params[:id])
+        end
+        
     end
 
     def update
+        @property = Property.find(params[:id])
+        @property.update(property_params)
+        redirect_to property_path(@property)
+    end
 
+    def delete 
+        @property.destroy
     end
 
     private 
     def property_params
         params.require(:property).permit(
             :user_id,
+            :property_name,
             :event_type, 
             :date_created, 
             :maximum_occupancy, 

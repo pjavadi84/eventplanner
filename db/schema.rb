@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
   end
 
   create_table "properties", force: :cascade do |t|
+    t.string "property_name"
     t.string "event_type"
-    t.datetime "date_created"
+    t.date "date_created"
     t.integer "maximum_occupancy"
     t.string "address"
     t.string "city"

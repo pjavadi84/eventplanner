@@ -1,9 +1,23 @@
 <h2>Create a property</h2>
-<%= form_for @property do |f| %>
+<%= form_for(@property) do |f| %>
   <div class="form-row align-items-center">
     <div class="col-auto my-1">
+     <%= user_id_field(@property) %>
+     
+      <!--<% if @property.user.nil? %>
+        <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :fullname) %><br>
+      <% end %> -->
+
+      <!--<%= f.hidden_field :user_id %> -->
+
+      <%= f.label :property_name %>
+      <%= f.text_field :property_name %>
+      <br>
       <%= f.label :event_type %>
       <%= f.text_field :event_type %>
+      <br>
+      <%= f.label :date_created %>
+      <%= f.date_field :date_created %>
       <br>
       <%= f.label :maximum_occupancy %>
       <%= f.number_field :maximum_occupancy %>

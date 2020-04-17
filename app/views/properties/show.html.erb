@@ -1,0 +1,18 @@
+
+<div class="container">
+    <h3><%= @property.property_name %> details:</h3>
+</div>
+
+<br>
+
+<div class="container">
+        <div class="float-sm-left">
+            <p><strong>Event Type: </strong><%= @property.event_type.capitalize %></p>
+            <p><strong>Date: </strong><%= @property.date_created %><p>
+            <p><strong>Maximum occupancy: </strong><%= @property.maximum_occupancy %><p>
+            <p><strong>Address: </strong><%= @property.address %>, <%= @property.city %>, <%= @property.state %> <%= @property.zipcode %><p>
+            <br>
+            <br>
+            <p><%= link_to "all properties", user_properties_path(@property) %> | <%= link_to "edit property", edit_user_property_path(@property.user, @property) if @property.user %> | </p>
+        </div><br>  
+</div>

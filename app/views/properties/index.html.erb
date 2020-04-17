@@ -1,20 +1,18 @@
-<h2>All properties: </h2>
-
-<%= @properties.each do |t| %>
-    <!--<div class="container">
-        <h2><%= link_to t.event_type, property_path(t) %></h2>
-    </div> -->
-
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-<% end %>
+<h1>All properties: </h1>
+<table class="table">
+  <caption>List of properties</caption>
+  <thead>
+    <tr>
+      <th scope="col">property_name</th>
+      <th scope="col">details</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @properties.each do |c| %>
+    <tr>
+      <td><%= c.property_name %></td>
+      <td><%= link_to "show details", user_property_path(c.user, c)  if c.user %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
