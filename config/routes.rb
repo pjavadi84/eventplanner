@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #logout route
   delete '/logout', to: 'sessions#destroy'
 
+  # resources :properties 
 
   resources :users do
     resources :properties

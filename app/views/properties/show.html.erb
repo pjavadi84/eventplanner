@@ -13,6 +13,8 @@
             <p><strong>Address: </strong><%= @property.address %>, <%= @property.city %>, <%= @property.state %> <%= @property.zipcode %><p>
             <br>
             <br>
-            <p><%= link_to "all properties", user_properties_path(@property) %> | <%= link_to "edit property", edit_user_property_path(@property.user, @property) if @property.user %> | </p>
+            <p><%= link_to "all properties", user_properties_path(@property) %> | 
+            <%= link_to "edit property", edit_user_property_path(@property.user, @property) if @property.user %> | 
+            <%= button_to 'Delete', user_property_path(@property.user, @property), :method => 'delete' %>
         </div><br>  
 </div>

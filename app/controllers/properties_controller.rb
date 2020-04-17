@@ -44,11 +44,14 @@ class PropertiesController < ApplicationController
     def update
         @property = Property.find(params[:id])
         @property.update(property_params)
-        redirect_to property_path(@property)
+        redirect_to user_property_path(@property)
     end
 
-    def delete 
+    def destroy 
+        @property = Property.find(params[:id])
         @property.destroy
+        flash[:notice]= "Property deleted."
+        redirect_to user_properties_path(@property)
     end
 
     private 
