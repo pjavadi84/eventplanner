@@ -1,4 +1,18 @@
 <h2>Create a property</h2>
+
+<% if @property.errors.any? %>
+  <div id="error_explanation">
+    <h4><%= pluralize(@property.errors.count, "error") %>: can't create property because: </h4>
+
+    <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= form_for(@property) do |f| %>
   <div class="form-row align-items-center">
     <div class="col-auto my-1">

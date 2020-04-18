@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= link_to "create property", new_user_property_path(current_user) %>
+
+
 <h1>All properties: </h1>
 <table class="table">
   <caption>List of properties</caption>

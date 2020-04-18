@@ -15,6 +15,8 @@
             <br>
             <p><%= link_to "all properties", user_properties_path(@property) %> | 
             <%= link_to "edit property", edit_user_property_path(@property.user, @property) if @property.user %> | 
-            <%= button_to 'Delete', user_property_path(@property.user, @property), :method => 'delete' %>
+            <%= link_to "events", property_events_path(@property.id) %>
+            <%= button_to 'Delete', user_property_path(@property.user, @property), :method => 'delete', :class => "btn btn-info" %>
+            
         </div><br>  
 </div>
