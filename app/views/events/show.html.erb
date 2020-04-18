@@ -1,0 +1,20 @@
+<div class="container">
+    <h3><%= @event.event_name %> details:</h3>
+</div>
+
+<br>
+
+<div class="container">
+        <div class="float-sm-left">
+            <p><strong>Date: </strong><%= @event.event_date %><p>
+            <p><strong>Ticket Price: </strong><%= @event.ticket_price %><p>
+            <p><strong>Minimum required age: </strong><%= @event.minimum_age %>
+            <p><strong>Number of guests: </strong><%= @event.number_of_guests %>
+            <p><strong>Property sponsored: </strong><%= current_property.property_name %></p>
+
+            <p><%= link_to "all events", property_events_path(@event) %> |
+            <p><%= link_to "edit event", edit_property_event_path(@event.property, @event) if @event.property %> |
+            
+            <%= button_to "Delete", property_event_path(@event.property, @event), :method => 'delete', :class => "btn btn-info" %>
+        </div><br>  
+</div>

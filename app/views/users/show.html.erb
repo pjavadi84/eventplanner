@@ -1,6 +1,21 @@
-<h3>Welcome, <strong><%= @user.fullname %><strong></h3>
+<div class="welcome">
+  <h3>Welcome, <strong><%= @user.fullname %><strong></h3>
+</div>
 
 
-<div class="container-fluid">
-  <%= link_to 'Create Property', new_user_property_path(@user) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <p><strong>Properties:</strong></p>
+      <%= link_to 'Create Property', new_user_property_path(@user) %><br>
+      <%= link_to 'Show all properties', user_properties_path(current_user) %>
+    </div>
+    <div class="col-sm">
+       <p><strong>Events:</strong></p>
+    </div>
+    <div class="col-sm">
+       <p><strong>Bookings:</strong></p>
+    </div>
+  </div>
 </div>
