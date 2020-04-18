@@ -1,0 +1,22 @@
+<h2>Create an event</h2>
+
+<% if @event.errors.any? %>
+    <div id="error_explanation" %>
+        <h4><%= pluralize(@event.errors.count, "error") %>: can't create an event, because:</h4>
+            
+        <ul>
+            <% @event.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<% form_for(@event) do |f| %>
+    <div class="form-for align-items-center">
+        <div class="col-auto my-1">
+        <%= property_id_field(@property) %>
+
+        <%= f.label :event_name %>
+        <%= f.text_field :event_name %>
+<% end %>
