@@ -12,7 +12,7 @@
     </div>
 <% end %>
 
-<% form_for(@event) do |f| %>
+<%= form_for(@event) do |f| %>
     <div class="form-for align-items-center">
         <div class="col-auto my-1">
             <%= property_id_field(@event) %>
@@ -24,18 +24,18 @@
             <%= f.number_field :ticket_price %>
             <br>
             <%= f.label :minimum_age %>
-            <%= f.number_filed :minimum_age %>
+            <%= f.number_field :minimum_age %>
             <br>
             <%= f.label :number_of_guests %>
             <%= f.number_field :number_of_guests %>
             <br>
             <%= f.label :event_date %>
-            <%= f.date :event_date %>
+            <%= f.date_field :event_date %>
         </div>
     <br>
 
-        <%= f.submit "Create event" %>
-        <%= link_to "back to all events", property_events_path(current_user) %>
+<%= f.submit "Create event" %>
+<%= link_to "back to all events", property_events_path(current_user) %>
 
     </div>
 <% end %>
