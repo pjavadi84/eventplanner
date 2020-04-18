@@ -13,7 +13,7 @@
             <p><strong>Property sponsored: </strong><%= current_property.property_name %></p>
 
             <p><%= link_to "all events", property_events_path(@event) %> |
-            <p><%= link_to "edit event", edit_property_event_path(@event.property, @event) if @event.property %> |
+            <%= link_to "edit event", edit_property_event_path(@event.property, @event) if @event.property %> |</p>
             
             <%= button_to "Delete", property_event_path(@event.property, @event), :method => 'delete', :class => "btn btn-info" %>
         </div><br>  
