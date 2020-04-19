@@ -17,6 +17,7 @@
         <div class="col-auto my-1">
             <%= property_id_field(@event) %>
 
+            <%= f.hidden_field :user_id %>
             <%= f.label :event_name %>
             <%= f.text_field :event_name %>
             <br>

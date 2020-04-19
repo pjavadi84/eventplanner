@@ -9,7 +9,8 @@
     <div class="col-sm">
       <p><strong>Properties:</strong></p>
       <%= link_to 'Create Property', new_user_property_path(@user) %><br>
-      <%= link_to 'Show all properties', user_properties_path(current_user) %>
+      <%= link_to 'Show all properties', user_properties_path(current_user) %><br>
+      <%= link_to "Show all events" , user_events_path(current_user) %>
     </div>
   </div>
 </div>

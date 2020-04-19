@@ -2,7 +2,11 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%= link_to "create an event", new_property_event_path(current_user) %>
+<% if current_user %>
+  <%= link_to "create an event", new_property_event_path(current_user) %>
+<% else %>
+  <%= link_to "see events", events_path %>
+<% end %>
 
 
 <h1>All events: </h1>
@@ -18,7 +22,11 @@
   <% @events.each do |e| %>
     <tr>
       <td><%= e.event_name %></td>
-      <td><%= link_to "show details", user_event_path(e, current_user) %></td>
+      <% if current_user %>
+        <td><%= link_to "show details", user_event_path(e, current_user) %></td>
+      <% else %>
+        <td><%= link_to "register or login to check details", signup_path %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

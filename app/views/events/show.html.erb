@@ -17,5 +17,18 @@
             <%= button_to "Delete", property_event_path(@event.property, @event), :method => 'delete', :class => "btn btn-info" %><br>
             <p><%= link_to "Add a Comment", new_event_comment_path(@event) %></p><br>
 
+            <% @event.comments.each do |c| %>
+                <div class="card" style="width:300px">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <b><%= c.user.fullname %>: <%= c.content %>
+                            
+                            <% if current_user && current_user == c.user %>
+                                <%= button_to "delete", event_comment_path(c.event, c), :method => :delete, remote: true, style: 'float:right' %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </div>
+            <% end %>
         </div>
 </div>

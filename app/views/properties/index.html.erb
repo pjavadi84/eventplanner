@@ -12,6 +12,7 @@
     <tr>
       <th scope="col">property_name</th>
       <th scope="col">details</th>
+      <th scope="col">maximum capacity</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
     <tr>
       <td><%= c.property_name %></td>
       <td><%= link_to "show details", user_property_path(c.user, c)  if c.user %></td>
+      <td><%= c.maximum_occupancy %>
     </tr>
   <% end %>
   </tbody>

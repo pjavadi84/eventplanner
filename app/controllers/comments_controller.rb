@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     def create
         @comment = current_user.comments.build(comment_params)
         @event = @comment.event
+      
         
         if @comment.save
             redirect_to event_path(@event)
@@ -18,7 +19,11 @@ class CommentsController < ApplicationController
     end
 
     def destroy 
+        @comment = Comment.find_by(id: params[:id])
+        @event = @comment.event 
 
+        @comment.destroy
+        redirect_to event_path(@event)
     end
 
     private 
