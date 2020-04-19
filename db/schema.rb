@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_194139) do
+ActiveRecord::Schema.define(version: 2020_04_19_164913) do
 
-  create_table "bookings", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
     t.integer "user_id"
     t.integer "event_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_bookings_on_event_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -28,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
     t.string "event_type"
     t.integer "number_of_guests"
     t.date "event_date"
+    t.time "event_time"
     t.integer "property_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "bookings", "events"
-  add_foreign_key "bookings", "users"
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
   add_foreign_key "events", "properties"
   add_foreign_key "properties", "users"
 end

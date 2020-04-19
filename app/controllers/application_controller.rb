@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
 
     def current_property
         current_property ||= Property.find_by(id: session[:user_id]) if session[:user_id]
-        binding.pry
     end
 
 

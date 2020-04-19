@@ -31,10 +31,15 @@
             <br>
             <%= f.label :event_date %>
             <%= f.date_field :event_date %>
+            <br>
+            <%= f.label :event_time %>
+            <%= f.time_field :event_time %>
+            <br>
+            <%= f.submit "Create event" %>
         </div>
     <br>
 
-<%= f.submit "Create event" %>
+
 <%= link_to "back to all events", property_events_path(current_user) %>
 
     </div>

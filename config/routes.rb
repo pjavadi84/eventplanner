@@ -23,13 +23,14 @@ Rails.application.routes.draw do
     resources :events
   end
 
-  
-  resources :events do 
-    resources :bookings, only:[:index, :new, :create, :show]
+  resources :events do
+    resources :comments
   end
 
-  resources :users do
-    resources :bookings
+  resources :comments
+  
+  resources :users do 
+    resources :events
   end
 
   get '/auth/github/callback', to: 'sessions#github_login'

@@ -12,15 +12,13 @@
     <tr>
       <th scope="col">Event name</th>
       <th scope="col">details</th>
-      <th scope="col">action</th>
     </tr>
   </thead>
   <tbody>
   <% @events.each do |e| %>
     <tr>
       <td><%= e.event_name %></td>
-      <td><%= link_to "show details", property_event_path(e.property, e)  if e.property %></td>
-      <td><%= link_to "Book this!", new_user_booking_path(e) %></td>
+      <td><%= link_to "show details", user_event_path(e, current_user) %></td>
     </tr>
   <% end %>
   </tbody>
