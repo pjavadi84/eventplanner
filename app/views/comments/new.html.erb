@@ -1,0 +1,14 @@
+<div class="form-row">
+
+    <%= form_for(@comment) do |f| %>
+        <%= f.hidden_field :event_id %>
+
+        <div class="form-group">
+        <%= f.label :comment %><br>
+        <%= f.text_field :content %>
+        </div>
+
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+    <% end %>
+
+</div>

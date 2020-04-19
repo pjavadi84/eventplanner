@@ -27,7 +27,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :comments
+ resources :users do 
+    resources :comments
+ end
+
+ resources :comments
   
   resources :users do 
     resources :events

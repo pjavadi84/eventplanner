@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :current_user, :current_property, :logged_in?
+    helper_method :current_user, :current_property, :current_event, :logged_in?
 
 
   private
@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 
     def current_property
         current_property ||= Property.find_by(id: session[:user_id]) if session[:user_id]
+    end
+
+    def current_event
+        current_event ||= Event.find_by(id: session[:user_id]) if session[:user_id]
     end
 
 

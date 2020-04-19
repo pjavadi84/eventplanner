@@ -13,8 +13,9 @@
             
 
             <p><%= link_to "all events", property_events_path(@event) %> |
-            <%= link_to "edit event", edit_property_event_path(@event.property, @event) if @event.property %> |</p>
-            
-            <%= button_to "Delete", property_event_path(@event.property, @event), :method => 'delete', :class => "btn btn-info" %>
-        </div><br>  
+            <%= link_to "edit event", edit_property_event_path(@event.property, @event) if @event.property %> |</p><br>
+            <%= button_to "Delete", property_event_path(@event.property, @event), :method => 'delete', :class => "btn btn-info" %><br>
+            <p><%= link_to "Add a Comment", new_event_comment_path(@event) %></p><br>
+
+        </div>
 </div>
