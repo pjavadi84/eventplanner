@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_04_14_194139) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "events_id", null: false
+    t.integer "user_id"
+    t.integer "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["events_id"], name: "index_bookings_on_events_id"
+    t.index ["event_id"], name: "index_bookings_on_event_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -28,12 +28,10 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
     t.string "event_type"
     t.integer "number_of_guests"
     t.date "event_date"
-    t.integer "property_id", null: false
-    t.integer "user_id", null: false
+    t.integer "property_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_events_on_property_id"
-    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -45,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
     t.string "city"
     t.string "state"
     t.integer "zipcode"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
@@ -57,16 +55,12 @@ ActiveRecord::Schema.define(version: 2020_04_14_194139) do
     t.string "password_digest"
     t.boolean "host", default: false
     t.string "uid"
-    t.integer "event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_users_on_event_id"
   end
 
-  add_foreign_key "bookings", "events", column: "events_id"
+  add_foreign_key "bookings", "events"
   add_foreign_key "bookings", "users"
   add_foreign_key "events", "properties"
-  add_foreign_key "events", "users"
   add_foreign_key "properties", "users"
-  add_foreign_key "users", "events"
 end

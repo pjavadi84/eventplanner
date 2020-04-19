@@ -7,8 +7,8 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :event_type
       t.integer :number_of_guests
       t.date :event_date
-      t.belongs_to :property, null: false, foreign_key: true
-      t.belongs_to :user, null: false, foreign_key: true
+      t.belongs_to :property, foreign_key: true
+      
 
       
       t.timestamps
