@@ -2,7 +2,7 @@
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%= link_to "create an event", new_property_event_path %>
+<%= link_to "create an event", new_property_event_path(current_user) %>
 
 
 <h1>All events: </h1>
@@ -12,6 +12,7 @@
     <tr>
       <th scope="col">Event name</th>
       <th scope="col">details</th>
+      <th scope="col">action</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
     <tr>
       <td><%= e.event_name %></td>
       <td><%= link_to "show details", property_event_path(e.property, e)  if e.property %></td>
+      <td><%= link_to "Book this!", new_user_booking_path(e) %></td>
     </tr>
   <% end %>
   </tbody>

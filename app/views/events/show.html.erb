@@ -10,7 +10,7 @@
             <p><strong>Ticket Price: </strong><%= @event.ticket_price %><p>
             <p><strong>Minimum required age: </strong><%= @event.minimum_age %>
             <p><strong>Number of guests: </strong><%= @event.number_of_guests %>
-            <p><strong>Property sponsored: </strong><%= current_property.property_name %></p>
+            
 
             <p><%= link_to "all events", property_events_path(@event) %> |
             <%= link_to "edit event", edit_property_event_path(@event.property, @event) if @event.property %> |</p>
