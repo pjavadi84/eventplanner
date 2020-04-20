@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
     def index 
         @properties = Property.all.orderedname
+        # binding.pry
     end
     
     def new 

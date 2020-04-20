@@ -24,3 +24,16 @@
  .welcome {
      color: green
  }
+
+
+ .container_fluid {
+     background-color: black;
+ }
+
+ body {
+     color: #d39e00;
+ }
+
+ .table {
+     background-color: white;
+ }
