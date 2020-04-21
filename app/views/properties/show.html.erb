@@ -11,10 +11,11 @@
             <p><strong>Date: </strong><%= @property.date_created %><p>
             <p><strong>Maximum occupancy: </strong><%= @property.maximum_occupancy %><p>
             <p><strong>Address: </strong><%= @property.address %>, <%= @property.city %>, <%= @property.state %> <%= @property.zipcode %><p>
+            <p>user's name: <%= @property.user.fullname %></p>
             <br>
             <br>
             <p><%= link_to "all properties", user_properties_path(@property) %> | 
-            <%= link_to "edit property", edit_user_property_path(@property.user, @property) if @property.user %> | 
+            <%= link_to "edit property", edit_user_property_path(@property.user, @property) %> | 
             <%= link_to "events", user_events_path(@property.user) %>
             <%= button_to 'Delete', user_property_path(@property.user, @property), :method => 'delete', :class => "btn btn-info" %>
             

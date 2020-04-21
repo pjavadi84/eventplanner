@@ -1,4 +1,10 @@
 class PropertiesController < ApplicationController
+    before_action :logged_in?
+
+    def alphabetical
+        @properties = Property.all.alpha
+    end
+    
     def index 
         @properties = Property.all.orderedname
         # binding.pry

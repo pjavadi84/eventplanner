@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
             u.fullname = auth['info']['name']
             u.email = auth['info']['email']
             u.password = SecureRandom.hex
-        end
+    end
         
 
         session[:user_id] = @user.id

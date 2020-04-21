@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'static#home'
   
+  get '/alphabetical' => 'properties#alphabetical', as: 'alphabetical'
+
   #signup route
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   #login route
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  
+ 
 
   #logout route
   delete '/logout', to: 'sessions#destroy'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :properties
   end
+  
 
   resources :properties do
     resources :events

@@ -1,5 +1,6 @@
 
     <%= form_for @user do |f| %>
+    <fieldset>
         <div class="form_group">
             <%= f.label "enter your fullname: " %>
             <%= f.text_field :fullname %>
@@ -10,11 +11,13 @@
             <%= f.label "password: " %>
             <%= f.password_field :password, autocomplete: "password" %>
             <br>
-            <%= f.submit "Sign Up!" %>
+            <%= f.submit "Sign Up!"%>
         </div>
         <br>
-        
+
         <h1>Or</h1><br>
 
         <%= link_to "already signed up? login here", login_path %>
-    <% end %>
+    <fieldset>
+<% end %>
+

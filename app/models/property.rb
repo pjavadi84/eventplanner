@@ -6,4 +6,6 @@ class Property < ApplicationRecord
 
     #scope methods:
     scope :orderedname, -> { order(:maximum_occupancy) }
+
+    scope :alpha, -> { order(:property_name) }
 end
